@@ -10,12 +10,12 @@
 		EC18876225B998AB005EA741 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC18876125B998AB005EA741 /* DetailView.swift */; };
 		EC18876625B9B11D005EA741 /* ItemCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC18876525B9B11D005EA741 /* ItemCard.swift */; };
 		EC18876A25B9B3AF005EA741 /* ItemRows.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC18876925B9B3AF005EA741 /* ItemRows.swift */; };
-		ECCD39B0257A898600AED8AB /* SwiftDataApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCD39AF257A898600AED8AB /* SwiftDataApp.swift */; };
+		ECCD39B0257A898600AED8AB /* FavouriteItemsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCD39AF257A898600AED8AB /* FavouriteItemsApp.swift */; };
 		ECCD39B2257A898600AED8AB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCD39B1257A898600AED8AB /* ContentView.swift */; };
 		ECCD39B4257A898800AED8AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECCD39B3257A898800AED8AB /* Assets.xcassets */; };
 		ECCD39B7257A898800AED8AB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECCD39B6257A898800AED8AB /* Preview Assets.xcassets */; };
 		ECCD39B9257A898800AED8AB /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCD39B8257A898800AED8AB /* Persistence.swift */; };
-		ECCD39BC257A898800AED8AB /* SwiftData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ECCD39BA257A898800AED8AB /* SwiftData.xcdatamodeld */; };
+		ECCD39BC257A898800AED8AB /* FavouriteItems.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ECCD39BA257A898800AED8AB /* FavouriteItems.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,7 +23,7 @@
 		EC18876525B9B11D005EA741 /* ItemCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCard.swift; sourceTree = "<group>"; };
 		EC18876925B9B3AF005EA741 /* ItemRows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRows.swift; sourceTree = "<group>"; };
 		ECCD39AC257A898600AED8AB /* FavouriteItems.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FavouriteItems.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		ECCD39AF257A898600AED8AB /* SwiftDataApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDataApp.swift; sourceTree = "<group>"; };
+		ECCD39AF257A898600AED8AB /* FavouriteItemsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteItemsApp.swift; sourceTree = "<group>"; };
 		ECCD39B1257A898600AED8AB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		ECCD39B3257A898800AED8AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ECCD39B6257A898800AED8AB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -62,7 +62,7 @@
 		ECCD39AE257A898600AED8AB /* FavouriteItems */ = {
 			isa = PBXGroup;
 			children = (
-				ECCD39AF257A898600AED8AB /* SwiftDataApp.swift */,
+				ECCD39AF257A898600AED8AB /* FavouriteItemsApp.swift */,
 				ECCD39B1257A898600AED8AB /* ContentView.swift */,
 				EC18876925B9B3AF005EA741 /* ItemRows.swift */,
 				EC18876525B9B11D005EA741 /* ItemCard.swift */,
@@ -70,7 +70,7 @@
 				ECCD39B3257A898800AED8AB /* Assets.xcassets */,
 				ECCD39B8257A898800AED8AB /* Persistence.swift */,
 				ECCD39BD257A898800AED8AB /* Info.plist */,
-				ECCD39BA257A898800AED8AB /* SwiftData.xcdatamodeld */,
+				ECCD39BA257A898800AED8AB /* FavouriteItems.xcdatamodeld */,
 				ECCD39B5257A898800AED8AB /* Preview Content */,
 			);
 			path = FavouriteItems;
@@ -154,12 +154,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECCD39B9257A898800AED8AB /* Persistence.swift in Sources */,
-				ECCD39BC257A898800AED8AB /* SwiftData.xcdatamodeld in Sources */,
+				ECCD39BC257A898800AED8AB /* FavouriteItems.xcdatamodeld in Sources */,
 				ECCD39B2257A898600AED8AB /* ContentView.swift in Sources */,
 				EC18876A25B9B3AF005EA741 /* ItemRows.swift in Sources */,
 				EC18876225B998AB005EA741 /* DetailView.swift in Sources */,
 				EC18876625B9B11D005EA741 /* ItemCard.swift in Sources */,
-				ECCD39B0257A898600AED8AB /* SwiftDataApp.swift in Sources */,
+				ECCD39B0257A898600AED8AB /* FavouriteItemsApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,13 +350,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		ECCD39BA257A898800AED8AB /* SwiftData.xcdatamodeld */ = {
+		ECCD39BA257A898800AED8AB /* FavouriteItems.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				ECCD39BB257A898800AED8AB /* SwiftData.xcdatamodel */,
 			);
 			currentVersion = ECCD39BB257A898800AED8AB /* SwiftData.xcdatamodel */;
-			path = SwiftData.xcdatamodeld;
+			path = FavouriteItems.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
