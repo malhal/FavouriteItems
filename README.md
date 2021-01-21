@@ -5,5 +5,5 @@ Run the sample and tap + to add a few items. Tap the items to view the details a
 
 The ContentView has the onlyFavs var for the filter (which is saved in User Defaults via @AppStorate). When it is toggled, the body runs and ItemRows is created again with the new value of onlyFavs. In the constructor of ItemRows it uses a little known trick to built a dynamic FetchRequest based on a predicate by setting it on _items.
 
-![Screenshot Favs-on](/Screenshots/Favs-on.png)
 ![Screenshot Favs-off](/Screenshots/Favs-off.png)
+![Screenshot Favs-on](/Screenshots/Favs-on.png)
