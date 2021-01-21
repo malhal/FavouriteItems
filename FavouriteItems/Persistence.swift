@@ -1,8 +1,8 @@
 //
 //  Persistence.swift
-//  SwiftData
+//  FavouriteItems
 //
-//  Created by Malcolm Hall on 04/12/2020.
+//  Created by Malcolm Hall on 01/01/2021.
 //
 
 import CoreData

@@ -1,6 +1,6 @@
 //
 //  ItemRows.swift
-//  SwiftData
+//  FavouriteItems
 //
 //  Created by Malcolm Hall on 21/01/2021.
 //
