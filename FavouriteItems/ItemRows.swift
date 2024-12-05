@@ -10,17 +10,8 @@ import SwiftUI
 struct ItemRows: View {
     @Environment(\.managedObjectContext) private var viewContext
 
-    @FetchRequest
-    public var items: FetchedResults<Item>
+    @FetchRequest var items: FetchedResults<Item>
 
-    init(onlyFavs: Bool) {
-        var predicate: NSPredicate? = nil
-        if(onlyFavs) {
-            predicate = NSPredicate(format: "favourite == %d", onlyFavs)
-        }
-        _items = FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)], predicate: predicate, animation: .default)
-    }
-    
     var body: some View {
         ForEach(items) { item in
             NavigationLink(destination: DetailView(item: item)) {

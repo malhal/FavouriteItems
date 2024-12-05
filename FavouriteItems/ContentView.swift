@@ -12,18 +12,24 @@ struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @AppStorage("OnlyFavs") var onlyFavs = false
     
+    var fetchRequest: FetchRequest<Item> {
+        var predicate: NSPredicate? = nil
+        if(onlyFavs) {
+            predicate = NSPredicate(format: "favourite == %d", onlyFavs)
+        }
+        return FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)], predicate: predicate, animation: .default)
+    }
+    
     var body: some View {
         NavigationView {
             List {
-                Toggle(isOn: $onlyFavs.animation(), label: {
-                    Text("Only Favs")
-                })
-                ItemRows(onlyFavs: onlyFavs)
+                Toggle("Only Favs", isOn: $onlyFavs)
+                ItemRows(items: fetchRequest)
             }
-            
+            .animation(.default, value: onlyFavs)
             .toolbar {
                 #if os(iOS)
-                //EditButton()
+                    EditButton()
                 #endif
                     Button(action: addItem) {
                         Label("Add Item", systemImage: "plus")
