@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		EC18876225B998AB005EA741 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC18876125B998AB005EA741 /* DetailView.swift */; };
 		EC18876625B9B11D005EA741 /* ItemCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC18876525B9B11D005EA741 /* ItemCard.swift */; };
-		EC18876A25B9B3AF005EA741 /* ItemRows.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC18876925B9B3AF005EA741 /* ItemRows.swift */; };
+		EC346EEB2D41A977002F8B11 /* FetchedResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC346EEA2D41A973002F8B11 /* FetchedResultsView.swift */; };
 		ECCD39B0257A898600AED8AB /* FavouriteItemsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCD39AF257A898600AED8AB /* FavouriteItemsApp.swift */; };
 		ECCD39B2257A898600AED8AB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCD39B1257A898600AED8AB /* ContentView.swift */; };
 		ECCD39B4257A898800AED8AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECCD39B3257A898800AED8AB /* Assets.xcassets */; };
@@ -21,7 +21,7 @@
 /* Begin PBXFileReference section */
 		EC18876125B998AB005EA741 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		EC18876525B9B11D005EA741 /* ItemCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCard.swift; sourceTree = "<group>"; };
-		EC18876925B9B3AF005EA741 /* ItemRows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRows.swift; sourceTree = "<group>"; };
+		EC346EEA2D41A973002F8B11 /* FetchedResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchedResultsView.swift; sourceTree = "<group>"; };
 		EC464F572D01D3FD00A2C2F0 /* SampleCode.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = SampleCode.xcconfig; sourceTree = "<group>"; };
 		ECCD39AC257A898600AED8AB /* FavouriteItems.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FavouriteItems.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECCD39AF257A898600AED8AB /* FavouriteItemsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteItemsApp.swift; sourceTree = "<group>"; };
@@ -72,9 +72,9 @@
 		ECCD39AE257A898600AED8AB /* FavouriteItems */ = {
 			isa = PBXGroup;
 			children = (
+				EC346EEA2D41A973002F8B11 /* FetchedResultsView.swift */,
 				ECCD39AF257A898600AED8AB /* FavouriteItemsApp.swift */,
 				ECCD39B1257A898600AED8AB /* ContentView.swift */,
-				EC18876925B9B3AF005EA741 /* ItemRows.swift */,
 				EC18876525B9B11D005EA741 /* ItemCard.swift */,
 				EC18876125B998AB005EA741 /* DetailView.swift */,
 				ECCD39B3257A898800AED8AB /* Assets.xcassets */,
@@ -166,7 +166,7 @@
 				ECCD39B9257A898800AED8AB /* Persistence.swift in Sources */,
 				ECCD39BC257A898800AED8AB /* FavouriteItems.xcdatamodeld in Sources */,
 				ECCD39B2257A898600AED8AB /* ContentView.swift in Sources */,
-				EC18876A25B9B3AF005EA741 /* ItemRows.swift in Sources */,
+				EC346EEB2D41A977002F8B11 /* FetchedResultsView.swift in Sources */,
 				EC18876225B998AB005EA741 /* DetailView.swift in Sources */,
 				EC18876625B9B11D005EA741 /* ItemCard.swift in Sources */,
 				ECCD39B0257A898600AED8AB /* FavouriteItemsApp.swift in Sources */,
