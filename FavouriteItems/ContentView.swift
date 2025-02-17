@@ -17,7 +17,7 @@ struct ContentView: View {
         if(onlyFavs) {
             predicate = NSPredicate(format: "favourite == %d", onlyFavs)
         }
-        return FetchRequest(sortDescriptors: [SortDescriptor(\Item.timestamp, order: .reverse)], predicate: predicate, animation: .default)
+        return FetchRequest(sortDescriptors: [SortDescriptor(\Item.timestamp, order: .reverse)], predicate: predicate)
     }
     
     var body: some View {
