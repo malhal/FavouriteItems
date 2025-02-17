@@ -8,16 +8,11 @@
 import SwiftUI
 import CoreData
 
-struct FetchedResultsView<Content, Result>: View where Content: View, Result: NSFetchRequestResult {
-    @FetchRequest var results: FetchedResults<Result>
-    let content: ((FetchedResults<Result>) -> Content)
-    
-    init(request: FetchRequest<Result>, @ViewBuilder content: @escaping (FetchedResults<Result>) -> Content) {
-        self._results = request
-        self.content = content
-    }
+struct FetchedResultsView<Content: View, Result>: View where Result: NSFetchRequestResult {
+    let request: FetchRequest<Result>
+    @ViewBuilder let content: (FetchedResults<Result>) -> Content
     
     var body: some View {
-        content(results)
+        content(request.wrappedValue)
     }
 }
