@@ -10,35 +10,61 @@ import CoreData
 
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
-    @AppStorage("OnlyFavs") var onlyFavs = false
+    @SceneStorage("OnlyFavs") var onlyFavs = false
     
     var fetchRequest: FetchRequest<Item> {
         var predicate: NSPredicate? = nil
         if(onlyFavs) {
             predicate = NSPredicate(format: "favourite == %d", onlyFavs)
         }
-        return FetchRequest(sortDescriptors: [SortDescriptor(\Item.timestamp, order: .reverse)], predicate: predicate)
+        return FetchRequest(sortDescriptors: [SortDescriptor(\Item.timestamp, order: .reverse)], predicate: predicate, animation: .default)
     }
     
-    var body: some View {
-        NavigationView {
-            List {
-                Toggle("Only Favs", isOn: $onlyFavs)
-                FetchedResultsView(request: fetchRequest) { items in
-                    ForEach(items) { item in
-                        NavigationLink(destination: DetailView(item: item)) {
-                            Label(
-                                title: { ItemCard(item:item) },
-                                icon: { Image(systemName: item.favourite ? "star.fill" : "star") }
-                            )
-                        }
-                    }
-                    .onDelete { offsets in
-                        deleteItems(offsets.map { items[$0] })
-                    }
+    struct ItemRow: View {
+        @ObservedObject var item: Item
+        
+        var body: some View {
+            Label {
+                Text("Item at \(item.timestamp ?? Date.distantPast, format: Date.FormatStyle(date: .numeric, time: .standard))") // The ?? value is just to work around NavigationLink hanging on to this View and body being run after it was deleted which crashes if it was force unwrapped.
+            } icon: {
+                Image(systemName: item.favourite ? "star.fill" : "star")
+            }
+        }
+    }
+
+    struct FetchedItems: View {
+        let request: FetchRequest<Item>
+
+        var items: FetchedResults<Item> {
+            request.wrappedValue
+        }
+        
+        @Environment(\.managedObjectContext) private var viewContext
+        
+        var body: some View {
+            ForEach(items) { item in
+                NavigationLink(value: item) {
+                    ItemRow(item: item)
                 }
             }
-            .animation(.default, value: onlyFavs)
+            .onDelete { offsets in
+                deleteItems(offsets.map { items[$0] })
+            }
+        }
+        
+        private func deleteItems(_ items: [Item]) {
+            items.forEach(viewContext.delete)
+        }
+    }
+    
+    @State var selection: Item?
+    
+    var body: some View {
+        NavigationSplitView {
+            List(selection: $selection) {
+                Toggle("Only Favs", isOn: $onlyFavs.animation())
+                FetchedItems(request: fetchRequest)
+            }
             .toolbar {
                 #if os(iOS)
                     EditButton()
@@ -47,36 +73,19 @@ struct ContentView: View {
                         Label("Add Item", systemImage: "plus")
                     }
             }
+        } detail: {
+            if let selection {
+                DetailView(item: selection)
+            }
+            else {
+                Text("Select an item")
+            }
         }
     }
 
     private func addItem() {
-        withAnimation {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
-    }
-    
-    private func deleteItems(_ items: [Item]) {
-        items.forEach(viewContext.delete)
-        
-        do {
-            try viewContext.save()
-        } catch {
-            // Replace this implementation with code to handle the error appropriately.
-            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-            let nsError = error as NSError
-            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-        }
+        let newItem = Item(context: viewContext)
+        newItem.timestamp = Date()
     }
 }
 
@@ -84,6 +93,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        ContentView()
+            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }
