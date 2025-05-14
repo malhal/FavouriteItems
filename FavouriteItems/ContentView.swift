@@ -13,7 +13,6 @@ extension Item {
 }
 
 struct ContentView: View {
-    @Environment(\.managedObjectContext) private var viewContext
     @SceneStorage("OnlyFavs") var onlyFavs = false
     
     var fetchRequest: FetchRequest<Item> {
@@ -41,8 +40,6 @@ struct ContentView: View {
             request.wrappedValue
         }
         
-        @Environment(\.managedObjectContext) private var viewContext
-        
         var body: some View {
             ForEach(items) { item in
                 NavigationLink(value: item) {
@@ -53,6 +50,8 @@ struct ContentView: View {
                 deleteItems(offsets.map { items[$0] })
             }
         }
+        
+        @Environment(\.managedObjectContext) private var viewContext
         
         private func deleteItems(_ items: [Item]) {
             items.forEach(viewContext.delete)
@@ -85,6 +84,8 @@ struct ContentView: View {
         }
     }
 
+    @Environment(\.managedObjectContext) private var viewContext
+    
     private func addItem() {
         let newItem = Item(context: viewContext)
         newItem.timestamp = Date()
