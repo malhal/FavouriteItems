@@ -8,16 +8,18 @@
 import SwiftUI
 import CoreData
 
+extension Item {
+    static let onlyFavsPredicate = NSPredicate(format: "favourite = YES")
+}
+
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @SceneStorage("OnlyFavs") var onlyFavs = false
     
     var fetchRequest: FetchRequest<Item> {
-        var predicate: NSPredicate? = nil
-        if(onlyFavs) {
-            predicate = NSPredicate(format: "favourite == %d", onlyFavs)
-        }
-        return FetchRequest(sortDescriptors: [SortDescriptor(\Item.timestamp, order: .reverse)], predicate: predicate, animation: .default)
+        FetchRequest(sortDescriptors: [SortDescriptor(\Item.timestamp, order: .reverse)],
+                     predicate: onlyFavs ? Item.onlyFavsPredicate : nil,
+                     animation: .default)
     }
     
     struct ItemRow: View {
